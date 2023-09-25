@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>998</width>
+    <height>638</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,9 +17,9 @@
    <widget class="QPlainTextEdit" name="ListaNeuronas">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>70</y>
-      <width>391</width>
+      <x>450</x>
+      <y>100</y>
+      <width>501</width>
       <height>361</height>
      </rect>
     </property>
@@ -27,8 +27,8 @@
    <widget class="QPushButton" name="ButtonAAI">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>70</y>
+      <x>440</x>
+      <y>20</y>
       <width>251</width>
       <height>31</height>
      </rect>
@@ -79,8 +79,8 @@
    <widget class="QPushButton" name="ButtonAAF">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>110</y>
+      <x>700</x>
+      <y>20</y>
       <width>251</width>
       <height>31</height>
      </rect>
@@ -92,8 +92,8 @@
    <widget class="QPushButton" name="ButtonMostrar">
     <property name="geometry">
      <rect>
-      <x>410</x>
-      <y>20</y>
+      <x>570</x>
+      <y>60</y>
       <width>251</width>
       <height>31</height>
      </rect>
@@ -115,10 +115,10 @@
    <widget class="QGraphicsView" name="graphicsView">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>10</x>
       <y>10</y>
-      <width>711</width>
-      <height>431</height>
+      <width>951</width>
+      <height>501</height>
      </rect>
     </property>
    </widget>
@@ -284,6 +284,32 @@
      <string>blue</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="ButtonGuardar">
+    <property name="geometry">
+     <rect>
+      <x>510</x>
+      <y>470</y>
+      <width>181</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Guardar</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ButtonRecuperar">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>470</y>
+      <width>181</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Recuperar</string>
+    </property>
+   </widget>
    <zorder>graphicsView</zorder>
    <zorder>ListaNeuronas</zorder>
    <zorder>ButtonAAI</zorder>
@@ -303,14 +329,16 @@
    <zorder>label_5</zorder>
    <zorder>label_6</zorder>
    <zorder>label_7</zorder>
+   <zorder>ButtonGuardar</zorder>
+   <zorder>ButtonRecuperar</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>21</height>
+     <width>998</width>
+     <height>22</height>
     </rect>
    </property>
   </widget>

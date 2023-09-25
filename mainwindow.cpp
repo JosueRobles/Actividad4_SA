@@ -1,6 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <iostream>
+#include <QPlainTextEdit>
+#include <QFileDialog>
+#include <QFile>
+#include <QTextStream>
+#include <QMessageBox>
+#include <QDir>
+#include <QTableWidget>
+
 #include "sistema.h"
 using namespace std;
 
@@ -19,7 +27,26 @@ MainWindow::~MainWindow()
 }
 
 
+/*
+void MainWindow::on_actionOpen_Triggered()
+{
+    QString Filename= QFileDialog::getOpenFile(this, tr("Open File"),
+                                                "/home",tr("Images (*.png *.xpm *.jpg)"));
+    QMessageBox T;
+        T.setText(Filename);
+    T.exec();
+}
 void MainWindow::on_pushButton_clicked()
+{
+    ui->tableWidget->setColumnCount(8);
+    ui->tableWidget->setRowCount(4);
+    QTableWidgetItem=MyItem= new QTableWidgetItem("Hola");
+    ui->tableWidget->setWidget->setItem(0,0,MyItem);
+}
+*/
+
+
+void MainWindow::on_ButtonAAI_clicked()
 {
     ui->ButtonAAI->setText("Agregar al inicio");
     Sistema st;
@@ -52,7 +79,7 @@ void MainWindow::on_pushButton_clicked()
 }
 
 
-void MainWindow::on_pushButton_2_clicked()
+void MainWindow::on_ButtonAAF_clicked()
 {
     ui->ButtonAAF->setText("Agregar al final");
     Sistema st;
@@ -85,10 +112,46 @@ void MainWindow::on_pushButton_2_clicked()
 }
 
 
-void MainWindow::on_pushButton_3_clicked()
+void MainWindow::on_ButtonMostrar_clicked()
 {
     ui->ButtonMostrar->setText("Mostrar neuronas");
     Sistema st;
-    st.mostrar();
+    st.guardar_tabla();
+    st.guardar();
+    st.recuperar();
+
+    QFile file("neuronas_tabla.txt");
+    if(!file.open(QFile::ReadOnly | QFile::Text)){
+        QMessageBox::warning(this,"title","file not open");
+    }
+    QTextStream in(&file);
+    QString text = in.readAll();
+    ui->ListaNeuronas->setPlainText(text);
+    file.close();
 }
 
+void MainWindow::on_ButtonGuardar_clicked()
+{
+    QFile file("neuronas.txt");
+    if(!file.open(QFile::WriteOnly | QFile::Text)){
+        QMessageBox::warning(this,"title","file not open");
+    }
+    QTextStream out(&file);
+    QString text = ui->ListaNeuronas->toPlainText();
+    out << text;
+    file.flush();
+    file.close();
+}
+
+
+void MainWindow::on_ButtonRecuperar_clicked()
+{
+    QFile file("neuronas.txt");
+    if(!file.open(QFile::ReadOnly | QFile::Text)){
+        QMessageBox::warning(this,"title","file not open");
+    }
+    QTextStream in(&file);
+    QString text = in.readAll();
+    ui->ListaNeuronas->setPlainText(text);
+    file.close();
+}
